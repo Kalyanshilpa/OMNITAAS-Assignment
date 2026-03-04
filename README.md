@@ -51,21 +51,7 @@ express-rate-limit
 
 cors
 
-project-root/
-│
-├── backend/
-│   ├── server.js
-│   ├── package.json
-│
-├── frontend/
-│   ├── src/
-│   │   ├── Login.jsx
-│   │   ├── Welcome.jsx
-│   │   ├── App.jsx
-│   │
-│   ├── package.json
-│
-└── README.md
+
 
  
 
