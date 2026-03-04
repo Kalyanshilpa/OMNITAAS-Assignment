@@ -19,7 +19,7 @@ function Login() {
     setError("");
 
     try {
-      const response = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post("https://omnitaas-assignment-1.onrender.com/login", {
         username,
         password,
       });
