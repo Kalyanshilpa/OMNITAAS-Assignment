@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
 
@@ -43,6 +45,7 @@ function Login() {
 
         <form onSubmit={handleSubmit} className="space-y-5">
 
+          {/* Username */}
           <div>
             <input
               type="text"
@@ -54,15 +57,23 @@ function Login() {
             />
           </div>
 
-          <div>
+          {/* Password with Eye Icon */}
+          <div className="relative">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-xl placeholder-gray-200 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:bg-white/30 transition duration-300"
               required
             />
+
+            <span
+              className="absolute right-4 top-3.5 cursor-pointer text-gray-200 hover:text-white"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash size={18} /> : <FaEye size={18} />}
+            </span>
           </div>
 
           <button
